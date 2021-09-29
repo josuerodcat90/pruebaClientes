@@ -52,7 +52,14 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
+    "rules": {
+      "prettier/prettier": [
+        0,
+        {
+          "endOfLine": "crlf"
+        }
+      ]
+    },
     "overrides": [
       {
         "files": [
@@ -72,5 +79,11 @@
   ],
   "jest": {
     "preset": "@vue/cli-plugin-unit-jest"
-  }
+  },
+  "prettier/prettier": [
+    "error",
+    {
+      "endOfLine": "auto"
+    }
+  ]
 }
