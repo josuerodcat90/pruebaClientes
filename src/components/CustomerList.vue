@@ -60,9 +60,9 @@
 			this.load();
 		},
 		methods: {
-			load() {
+			async load() {
 				console.log('cargando..');
-				axios
+				await axios
 					.get('https://testingweb.free.beeceptor.com/customers')
 					.then((response) => {
 						if (response.data) {
@@ -87,16 +87,16 @@
 				});
 			},
 
-			save() {
+			async save() {
 				const newCustomer = {
 					name: this.newItem.name,
 				};
 
-				axios
+				await axios
 					.post('https://testingweb.free.beeceptor.com/customers', newCustomer)
 					.then((response) => {
 						if (response.data) {
-							this.customers.push(response.data);
+							this.load();
 						}
 					})
 					.catch((error) => {
@@ -107,7 +107,6 @@
 		},
 		data: () => ({
 			dialog: false,
-			dialogDelete: false,
 			headers: [
 				{
 					text: 'ID',
